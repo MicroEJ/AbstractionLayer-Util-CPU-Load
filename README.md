@@ -3,19 +3,11 @@
 
 # Overview
 
-Low Level MicroEJ debug statistics implement some debugging statistic KPI.
-It implements the followad KPI:
-- CPU Load
-- Framerate
+Low Level MicroEJ implementation for CPU load indicator.
 
 # Usage
 
-Add the following line to your `module.ivy` file to use the CPU:
-```
-<dependency org="com.is2t.bsp" name="bspDebug" rev="1.2.2" conf="default">
-	<artifact name="bspDebug-1.0-api" type="jar" />
-</dependency>
-```
+Add the content of src/main/c to your own BSP project.
 
 ## CPU Load
 
@@ -41,10 +33,9 @@ To configure this CCO for an other RTOS, you will need to:
 - Call the `cpuload_init` function in the RTOS Java task, before the `microej_main` function call.
 - Uncomment the `#define CPULOAD_ENABLED` in the [cpuload_conf.h file](src/main/c/inc/cpuload_conf.h).
 
-
 ### How to get the value
 
-You may call the function `cpuload_get` in C to get the KPI.
+You may call the function `cpuload_get` in C to get the indicator.
 To use the CPU Load KPI in Java, you may use the `get` method of the `com.is2t.debug.CPULoad` class.
 
 # Requirements
